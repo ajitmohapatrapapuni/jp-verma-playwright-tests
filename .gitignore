@@ -1,6 +1,21 @@
+# Dependencies
 node_modules/
+
+# Auth session
+fixtures/.auth/
+
+# Test results
 test-results/
 playwright-report/
-fixtures/.auth/
+
+# Environment files
 .env
+.env.example
+
+# Personal docs
+BEGINNER_GUIDE.md
+SELECTOR_FIX_GUIDE.md
+README.md
+
+# Misc
 *.zip
