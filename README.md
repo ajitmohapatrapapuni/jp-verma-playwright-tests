@@ -5,38 +5,6 @@
 
 ---
 
-## ✅ What to Automate vs ❌ What to Keep Manual
-
-### AUTOMATE — High ROI
-
-| # | Area | Why |
-|---|------|-----|
-| 1 | Admin Login + Session | Gateway to everything; regression here = total blockage |
-| 2 | All 10 Masters CRUD | Identical UI pattern → 1 factory = 10× coverage. Regressions break fee calculation |
-| 3 | Form Validation (empty, duplicate, XSS, whitespace) | Tedious to test manually; runs in seconds |
-| 4 | Protected Routes / Auth Guard | Security must never regress silently |
-| 5 | Student Registration (mandatory field, duplicate mobile) | Core intake flow; error = student can't pay |
-| 6 | Portal Config toggles → student portal effect | Cross-portal verification is repetitive and error-prone manually |
-| 7 | Dashboard widget render + no-error state | Daily-use screen; broken stats are immediately noticed |
-| 8 | Report generation + file download | Financial reporting; silent data errors = audit risk |
-| 9 | Fee calculation after dropdown changes | Core business logic; wrong amount = financial loss |
-| 10 | Bulk upload validation (dup mobile, missing fields, bad format) | Hard to reproduce manually every sprint |
-| 11 | Double-click / debounce on CREATE buttons | Intermittent bug; automation catches it reliably |
-| 12 | Admission buffer status transitions | Date/time edge cases are error-prone and hard to simulate manually |
-
-### ❌ MANUAL ONLY — Not Worth Automating
-
-| Area | Why Not Automate |
-|------|-----------------|
-| Razorpay payment flow (TC-PAY-001~013) | Payment gateway sandbox is non-deterministic; better tested manually with test cards |
-| Visual / pixel-perfect UI checks | Subjective; screenshot diffing has high false-positive rate |
-| PDF receipt layout verification | Content is tested; visual layout = manual spot-check |
-| Database direct queries (TC-M-040) | Needs DB access credentials; better as a dev-only integration test |
-| UAT sign-off scenarios | Requires human judgment and business stakeholder |
-| Performance under load (TC-M-036/037) | Needs k6 or Artillery, not Playwright |
-| API security (TC-M-033~035) | Better with Postman/Newman or dedicated API test tool |
-
----
 
 ## 📁 Project Structure
 
