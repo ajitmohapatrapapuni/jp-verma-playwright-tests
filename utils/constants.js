@@ -7,10 +7,15 @@
 export const BASE_URL = 'https://jp-verma-fee-collection.klaimify.workers.dev';
 
 // ── LOGIN CREDENTIALS (.env file se aata hai) ─────────────────────────────────
+if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) {
+  throw new Error('ADMIN_EMAIL or ADMIN_PASSWORD is missing in .env');
+}
+
 export const ADMIN_CREDS = {
-  email:    process.env.ADMIN_EMAIL    || 'admin@jpverma.ac.in',   // ← apna email
-  password: process.env.ADMIN_PASSWORD || 'Admin@1234',             // ← apna password
+  email: process.env.ADMIN_EMAIL,
+  password: process.env.ADMIN_PASSWORD,
 };
+
 
 // ── ROUTES — browser mein kholke URLs copy karo ──────────────────────────────
 // HOW TO FIND: Admin login karo → har page pe jaao → URL copy karo
@@ -52,3 +57,8 @@ export const XSS_PAYLOAD     = '<script>alert("xss")</script>';
 export const SQL_PAYLOAD      = "' OR '1'='1";
 export const WHITESPACE_INPUT = '     ';
 export const LONG_STRING      = 'A'.repeat(300);
+console.log('ADMIN_EMAIL:', process.env.ADMIN_EMAIL);
+console.log(
+  'ADMIN_PASSWORD:',
+  process.env.ADMIN_PASSWORD ? 'LOADED' : 'NOT LOADED'
+);
