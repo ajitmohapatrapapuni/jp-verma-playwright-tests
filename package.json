@@ -1,0 +1,27 @@
+{
+  "name": "jp-verma-fee-collection-tests",
+  "version": "2.0.0",
+  "description": "Playwright E2E test suite – JP Verma Fee Collection System",
+  "type": "module",
+  "scripts": {
+    "test":            "playwright test",
+    "test:smoke":      "node scripts/smokeTest.js",
+    "test:auth":       "playwright test tests/admin/auth.spec.js --project=chromium",
+    "test:masters":    "playwright test tests/masters/ --project=chromium",
+    "test:students":   "playwright test tests/student/ tests/admin/studentManagement.spec.js --project=chromium",
+    "test:dashboard":  "playwright test tests/admin/dashboard.spec.js --project=chromium",
+    "test:buffer":     "playwright test tests/admin/admissionBuffer.spec.js --project=chromium",
+    "test:portal":     "playwright test tests/admin/portalConfig.spec.js --project=chromium",
+    "test:headed":     "playwright test --headed --project=chromium",
+    "test:debug":      "playwright test --debug --project=chromium",
+    "test:chromium":   "playwright test --project=chromium",
+    "test:firefox":    "playwright test --project=firefox",
+    "test:mobile":     "playwright test --project=mobile-chrome",
+    "report":          "playwright show-report",
+    "summary":         "node scripts/generateReport.js",
+    "clear-results":   "rm -rf test-results playwright-report fixtures/.auth"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}
